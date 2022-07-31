@@ -1,18 +1,16 @@
-defmodule CcPrecompilerExample do
-  @moduledoc """
-  Documentation for `CcPrecompilerExample`.
-  """
+defmodule :cc_precompiler_example do
+  @moduledoc false
 
-  @doc """
-  Hello world.
+  @on_load :load_nif
+  def load_nif do
+    nif_file = '#{:code.priv_dir(:cc_precompiler_example)}/nif'
 
-  ## Examples
-
-      iex> CcPrecompilerExample.hello()
-      :world
-
-  """
-  def hello do
-    :world
+    case :erlang.load_nif(nif_file, 0) do
+      :ok -> :ok
+      {:error, {:reload, _}} -> :ok
+      {:error, reason} -> IO.puts("Failed to load nif: #{reason}")
+    end
   end
+
+  def hello_world(), do: :erlang.nif_error(:not_loaded)
 end
