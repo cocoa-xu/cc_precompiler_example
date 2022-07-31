@@ -36,10 +36,9 @@ jobs:
         with:
           files: |
             cache/*.tar.gz
-            checksum-*.exs
 
   macos:
-    runs-on: ubuntu-latest
+    runs-on: macos-11
     env:
       MIX_ENV: "prod"
     steps:
@@ -67,4 +66,3 @@ jobs:
         with:
           files: |
             cache/*.tar.gz
-            checksum-*.exs
