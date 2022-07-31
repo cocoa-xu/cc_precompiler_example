@@ -1,6 +1,6 @@
-# CcPrecompilerExample
+# CC Precompiler Example
 
-**TODO: Add description**
+This is a demo for how to use a precompiler with [elixir_make](https://github.com/elixir-lang/elixir_make).
 
 ## Installation
 
