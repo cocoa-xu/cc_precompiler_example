@@ -10,7 +10,7 @@ defmodule CCPrecompilerExample.MixProject do
       compilers: [:elixir_make] ++ Mix.compilers(),
       make_nif_filename: "nif",
       make_precompiler: CCPrecompiler,
-      make_precompiled_url: "https://github.com/cocoa-xu/cc_precompiler_example/releases/download/v@{version}/@{artefact_filename}",
+      make_precompiled_url: "https://github.com/cocoa-xu/cc_precompiler_example/releases/download/v#{@version}/@{artefact_filename}",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
