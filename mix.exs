@@ -10,7 +10,7 @@ defmodule CCPrecompilerExample.MixProject do
       compilers: [:elixir_make] ++ Mix.compilers(),
       make_nif_filename: "nif",
       make_precompiler: CCPrecompiler,
-      cc_precompile_base_url: "https://github.com/cocoa-xu/cc_precompiler_example/releases/download/v#{@version}",
+      make_precompiled_url: "https://github.com/cocoa-xu/cc_precompiler_example/releases/download/v@{version}/@{artefact_filename}",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -25,8 +25,8 @@ defmodule CCPrecompilerExample.MixProject do
   defp deps do
     [
       # todo: change this to hex.pm once elixir-lang/elixir_make#55 is merged
-      {:elixir_make, "~> 0.6", runtime: false, github: "cocoa-xu/elixir_make", branch: "cx-fennec_precompile"},
-      {:cc_precompiler, "~> 0.1.0", runtime: false, github: "cocoa-xu/cc_precompiler"}
+      {:elixir_make, "~> 0.6", runtime: true, path: "../elixir_make"},
+      {:cc_precompiler, "~> 0.1.0", runtime: false, path: "../cc_precompiler"}
     ]
   end
 end
