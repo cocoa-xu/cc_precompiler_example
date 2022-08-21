@@ -1,5 +1,5 @@
 %{
-  "castore": {:hex, :castore, "0.1.17", "ba672681de4e51ed8ec1f74ed624d104c0db72742ea1a5e74edbc770c815182f", [:mix], [], "hexpm", "d9844227ed52d26e7519224525cb6868650c272d4a3d327ce3ca5570c12163f9"},
-  "cc_precompiler": {:git, "https://github.com/cocoa-xu/cc_precompiler.git", "138be5604f80af7fa5c108536cc45d48b98024b7", []},
-  "elixir_make": {:git, "https://github.com/cocoa-xu/elixir_make.git", "30b2b9db3f048446a8bf012a73c819cd05652312", [branch: "cx-improve-precompiler"]},
+  "castore": {:hex, :castore, "0.1.18", "deb5b9ab02400561b6f5708f3e7660fc35ca2d51bfc6a940d2f513f89c2975fc", [:mix], [], "hexpm", "61bbaf6452b782ef80b33cdb45701afbcf0a918a45ebe7e73f1130d661e66a06"},
+  "cc_precompiler": {:git, "https://github.com/cocoa-xu/cc_precompiler.git", "83d7fe05fe308c39cac743e19bccf543f3a1646f", []},
+  "elixir_make": {:git, "https://github.com/cocoa-xu/elixir_make.git", "47aeac83d4bd3cb895e905e9b628987cfe8595eb", [branch: "cx-improve-precompiler"]},
 }
