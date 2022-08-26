@@ -3,7 +3,7 @@ defmodule :cc_precompiler_example do
 
   @on_load :load_nif
   def load_nif do
-    nif_file = '#{:code.priv_dir(:cc_precompiler_example)}/nif'
+    nif_file = ~c"#{:code.priv_dir(:cc_precompiler_example)}/nif"
 
     case :erlang.load_nif(nif_file, 0) do
       :ok -> :ok

@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: erlef/setup-beam@v1
         with:
-          otp-version: "25.0.2"
+          otp-version: "25.0.4"
           elixir-version: "1.13.4"
       - name: Install system dependecies
         run: |
@@ -48,6 +48,31 @@ jobs:
           brew install erlang elixir
           mix local.hex --force
           mix local.rebar --force
+      - name: Mix Test
+        run: |
+          mix deps.get
+          MIX_ENV=test mix test
+      - name: Create precompiled library
+        run: |
+          export ELIXIR_MAKE_CACHE_DIR=$(pwd)/cache
+          mkdir -p "${ELIXIR_MAKE_CACHE_DIR}"
+          mix elixir_make.precompile
+      - uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            cache/*.tar.gz
+
+  windows:
+    runs-on: windows-latest
+    env:
+      MIX_ENV: "prod"
+    steps:
+      - uses: actions/checkout@v3
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: "25.0.4"
+          elixir-version: "1.13.4"
       - name: Mix Test
         run: |
           mix deps.get
