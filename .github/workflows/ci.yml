@@ -73,6 +73,9 @@ jobs:
         with:
           otp-version: "25.0.4"
           elixir-version: "1.13.4"
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
       - name: Mix Test
         shell: bash
         run: |
