@@ -74,10 +74,12 @@ jobs:
           otp-version: "25.0.4"
           elixir-version: "1.13.4"
       - name: Mix Test
+        shell: bash
         run: |
           mix deps.get
           MIX_ENV=test mix test
       - name: Create precompiled library
+        shell: bash
         run: |
           export ELIXIR_MAKE_CACHE_DIR=$(pwd)/cache
           mkdir -p "${ELIXIR_MAKE_CACHE_DIR}"
