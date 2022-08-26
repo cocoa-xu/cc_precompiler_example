@@ -13,6 +13,8 @@ defmodule CCPrecompilerExample.MixProject do
         end,
       elixir: "~> 1.12",
       compilers: [:elixir_make] ++ Mix.compilers(),
+      make_executable: make_executable(),
+      make_makefile: make_makefile(),
       make_nif_filename: "nif",
       make_precompiler: CCPrecompiler,
       make_precompiled_url:
@@ -36,5 +38,19 @@ defmodule CCPrecompilerExample.MixProject do
        runtime: false, github: "cocoa-xu/elixir_make", branch: "cx-improve-precompiler"},
       {:cc_precompiler, "~> 0.1.0", runtime: false, github: "cocoa-xu/cc_precompiler"}
     ]
+  end
+
+  defp make_executable() do
+    case :os.type() do
+      {:win32, _} -> "nmake"
+      _ -> "make"
+    end
+  end
+
+  defp make_makefile() do
+    case :os.type() do
+      {:win32, _} -> "Makefile.win"
+      _ -> "Makefile"
+    end
   end
 end

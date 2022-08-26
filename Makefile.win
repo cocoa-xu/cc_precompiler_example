@@ -1,0 +1,13 @@
+PRIV_DIR = $(MIX_APP_PATH)/priv
+NIF_SO = $(PRIV_DIR)/nif.dll
+C_SRC = $(MAKEDIR)/c_src
+
+CFLAGS = /O2 /EHsc /I"$(ERTS_INCLUDE_DIR)"
+
+build: $(NIF_SO)
+
+$(NIF_SO):
+	@ if not exist "$(PRIV_DIR)" mkdir "$(PRIV_DIR)"
+	$(CC) $(CFLAGS) /LD /MD /Fe$@ "$(C_SRC)/cc_precompiler_example.c"
+
+.PHONY: all
