@@ -17,7 +17,7 @@ defmodule CCPrecompilerExample.MixProject do
       make_makefile: make_makefile(),
       make_nif_filename: "nif",
       make_precompiler: CCPrecompiler,
-      make_precompiler_priv_paths: ["include_this", "nif.so"],
+      make_precompiler_priv_paths: ["include_this", "nif.*"],
       make_precompiled_url:
         "https://github.com/cocoa-xu/cc_precompiler_example/releases/download/v#{@version}/@{artefact_filename}",
       start_permanent: Mix.env() == :prod,
