@@ -1,6 +1,7 @@
 PRIV_DIR = $(MIX_APP_PATH)/priv
 NIF_SO = $(PRIV_DIR)/nif.so
-C_SRC = $(shell pwd)/c_src
+SRC_ROOT = $(shell pwd)
+C_SRC = $(SRC_ROOT)/c_src
 
 CFLAGS += -shared -std=c11 -O3 -fPIC -I"$(ERTS_INCLUDE_DIR)"
 UNAME_S := $(shell uname -s)
@@ -19,8 +20,8 @@ $(NIF_SO):
 	
 	@ mkdir -p "$(PRIV_DIR)/include_this"
 	@ echo hello > "$(PRIV_DIR)/include_this/hello.txt"
-	@ pushd "$(PRIV_DIR)/include_this" && \
+	@ cd "$(PRIV_DIR)/include_this" && \
 		ln -s hello.txt hello.symlink.txt && \
-		popd
+		cd "$(SRC_ROOT)"
 	@ mkdir -p "$(PRIV_DIR)/exclude_this"
 	@ echo world > "$(PRIV_DIR)/exclude_this/world.txt"
