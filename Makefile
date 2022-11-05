@@ -11,6 +11,7 @@ endif
 .DEFAULT_GLOBAL := build
 
 build: $(NIF_SO)
+	@ echo > /dev/null
 
 $(NIF_SO):
 	@ mkdir -p "$(PRIV_DIR)"

@@ -26,17 +26,19 @@ defmodule CCPrecompilerExample.MixProject do
 
   def application do
     [
-      extra_applications: [:logger, :crypto, :inets, :public_key]
+      extra_applications: [:logger]
     ]
   end
 
   defp deps do
     [
-      # todo: change this to hex.pm once elixir-lang/elixir_make#56 is merged
       {:castore, "~> 0.1"},
-      {:elixir_make, "~> 0.6",
-       runtime: false, github: "cocoa-xu/elixir_make", branch: "cx-improve-precompiler"},
-      {:cc_precompiler, "~> 0.1.0", runtime: false, github: "cocoa-xu/cc_precompiler"}
+      {:elixir_make, "~> 0.6", runtime: false,
+        github: "cocoa-xu/elixir_make", branch: "cx-improve-precompiler"},
+        # path: "../elixir_make"},
+      {:cc_precompiler, "~> 0.1.0", runtime: false,
+        github: "cocoa-xu/cc_precompiler"}
+        # path: "../cc_precompiler"}
     ]
   end
 
