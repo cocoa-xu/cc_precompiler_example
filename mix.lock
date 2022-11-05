@@ -1,5 +1,6 @@
 %{
   "castore": {:hex, :castore, "0.1.18", "deb5b9ab02400561b6f5708f3e7660fc35ca2d51bfc6a940d2f513f89c2975fc", [:mix], [], "hexpm", "61bbaf6452b782ef80b33cdb45701afbcf0a918a45ebe7e73f1130d661e66a06"},
-  "cc_precompiler": {:git, "https://github.com/cocoa-xu/cc_precompiler.git", "dca5ffb5e44b42f44f32ad773cb7229b448bbd56", []},
-  "elixir_make": {:git, "https://github.com/cocoa-xu/elixir_make.git", "ea181cca164271abea69792f22caef065944446f", [branch: "cx-improve-precompiler"]},
+  "cc_precompiler": {:git, "https://github.com/cocoa-xu/cc_precompiler.git", "b63d31b56169b3751c7f691ee58b0dca67a1ce11", []},
+  "elixir_make": {:git, "https://github.com/cocoa-xu/elixir_make.git", "39531d3a37356f97c220f7854b5e2769c01c6b23", [branch: "cx-improve-precompiler"]},
+  "stb_image": {:git, "https://github.com/cocoa-xu/stb_image.git", "6228de8ba4600e845d135ae7f306377c350fe6e3", []},
 }
