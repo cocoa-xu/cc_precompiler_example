@@ -17,6 +17,7 @@ defmodule CCPrecompilerExample.MixProject do
       make_makefile: make_makefile(),
       make_nif_filename: "nif",
       make_precompiler: CCPrecompiler,
+      make_precompiler_priv_paths: ["include_this", "nif.so"],
       make_precompiled_url:
         "https://github.com/cocoa-xu/cc_precompiler_example/releases/download/v#{@version}/@{artefact_filename}",
       start_permanent: Mix.env() == :prod,
@@ -35,7 +36,7 @@ defmodule CCPrecompilerExample.MixProject do
       {:castore, "~> 0.1"},
       {:elixir_make, "~> 0.6", runtime: false,
         github: "cocoa-xu/elixir_make", branch: "cx-improve-precompiler"},
-        # path: "../elixir_make"},
+        # path: "../elixir_make", override: true},
       {:cc_precompiler, "~> 0.1.0", runtime: false,
         github: "cocoa-xu/cc_precompiler"}
         # path: "../cc_precompiler"}

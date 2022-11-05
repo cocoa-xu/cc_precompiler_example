@@ -16,3 +16,9 @@ build: $(NIF_SO)
 $(NIF_SO):
 	@ mkdir -p "$(PRIV_DIR)"
 	$(CC) $(CFLAGS) "$(C_SRC)/cc_precompiler_example.c" -o "$(NIF_SO)"
+	
+	@ mkdir -p "$(PRIV_DIR)/include_this"
+	@ echo hello > "$(PRIV_DIR)/include_this/hello.txt"
+	@ ln -s "$(PRIV_DIR)/include_this/hello.txt" "$(PRIV_DIR)/include_this/hello.symlink.txt"
+	@ mkdir -p "$(PRIV_DIR)/exclude_this"
+	@ echo world > "$(PRIV_DIR)/exclude_this/world.txt"
