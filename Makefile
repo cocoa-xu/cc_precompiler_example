@@ -18,10 +18,12 @@ $(NIF_SO):
 	@ mkdir -p "$(PRIV_DIR)"
 	$(CC) $(CFLAGS) "$(C_SRC)/cc_precompiler_example.c" -o "$(NIF_SO)"
 	
-	@ mkdir -p "$(PRIV_DIR)/include_this"
+	@ mkdir -p "$(PRIV_DIR)/include_this/lib"
 	@ echo hello > "$(PRIV_DIR)/include_this/hello.txt"
+	@ echo world > "$(PRIV_DIR)/include_this/lib/world.txt"
 	@ cd "$(PRIV_DIR)/include_this" && \
 		ln -s hello.txt hello.symlink.txt && \
+		ln -s lib symlink_to_lib && \
 		cd "$(SRC_ROOT)"
 	@ mkdir -p "$(PRIV_DIR)/exclude_this"
-	@ echo world > "$(PRIV_DIR)/exclude_this/world.txt"
+	@ echo hey > "$(PRIV_DIR)/exclude_this/hey.txt"
