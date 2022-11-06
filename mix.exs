@@ -5,12 +5,7 @@ defmodule CCPrecompilerExample.MixProject do
   def project do
     [
       app: :cc_precompiler_example,
-      version:
-        if Mix.env() == :prod do
-          @version
-        else
-          "#{@version}-dev"
-        end,
+      version: @version,
       elixir: "~> 1.12",
       compilers: [:elixir_make] ++ Mix.compilers(),
       make_executable: make_executable(),
@@ -34,8 +29,7 @@ defmodule CCPrecompilerExample.MixProject do
   defp deps do
     [
       # compilation
-      {:elixir_make, "~> 0.6", runtime: false, github: "cocoa-xu/elixir_make", branch: "cx-improve-precompiler"},
-        # path: "../elixir_make", override: true},
+      {:elixir_make, "~> 0.6", runtime: false, github: "cocoa-xu/elixir_make", branch: "cx-test-symbolic-links"},
       {:cc_precompiler, "~> 0.1.0", runtime: false, github: "cocoa-xu/cc_precompiler"},
       # deps
       {:stb_image, "~> 0.5", github: "cocoa-xu/stb_image"},
