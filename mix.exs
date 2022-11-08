@@ -29,7 +29,7 @@ defmodule CCPrecompilerExample.MixProject do
   defp deps do
     [
       # compilation
-      {:elixir_make, "~> 0.6", runtime: false, github: "cocoa-xu/elixir_make", branch: "cx-test-symbolic-links"},
+      {:elixir_make, "~> 0.6", runtime: false, github: "elixir-lang/elixir_make", override: true},
       {:cc_precompiler, "~> 0.1.0", runtime: false, github: "cocoa-xu/cc_precompiler"},
       # deps
       {:stb_image, "~> 0.5", github: "cocoa-xu/stb_image"},
