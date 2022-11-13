@@ -5,7 +5,13 @@ C_SRC = $(SRC_ROOT)/c_src
 
 CFLAGS += -shared -std=c11 -O3 -fPIC -I"$(ERTS_INCLUDE_DIR)"
 UNAME_S := $(shell uname -s)
+ifndef TARGET_ABI
 ifeq ($(UNAME_S),Darwin)
+	TARGET_ABI = darwin
+endif
+endif
+
+ifeq ($(TARGET_ABI),darwin)
 	CFLAGS += -undefined dynamic_lookup -flat_namespace -undefined suppress
 endif
 
