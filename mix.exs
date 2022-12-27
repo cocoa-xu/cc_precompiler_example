@@ -1,7 +1,7 @@
 defmodule CCPrecompilerExample.MixProject do
   use Mix.Project
 
-  @version "0.1.1"
+  @version "0.2.0"
   def project do
     [
       app: :cc_precompiler_example,
@@ -11,12 +11,15 @@ defmodule CCPrecompilerExample.MixProject do
       make_executable: make_executable(),
       make_makefile: make_makefile(),
       make_nif_filename: "nif",
-      make_precompiler: CCPrecompiler,
+      make_precompiler: {:nif, CCPrecompiler},
       make_precompiler_priv_paths: ["include_this", "nif.*"],
       make_precompiled_url:
         "https://github.com/cocoa-xu/cc_precompiler_example/releases/download/v#{@version}/@{artefact_filename}",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      cc_precompiler: [
+        cleanup: "mycleanup"
+      ]
     ]
   end
 
@@ -29,10 +32,10 @@ defmodule CCPrecompilerExample.MixProject do
   defp deps do
     [
       # compilation
-      {:elixir_make, "~> 0.6", runtime: false, github: "elixir-lang/elixir_make", override: true},
-      {:cc_precompiler, "~> 0.1.0", runtime: false, github: "cocoa-xu/cc_precompiler"},
+      {:elixir_make, "~> 0.7", runtime: false},
+      {:cc_precompiler, "~> 0.1", runtime: false, override: true},
       # deps
-      {:stb_image, "~> 0.5", github: "cocoa-xu/stb_image", branch: "cx-precompile"},
+      {:stb_image, "~> 0.6", github: "elixir-nx/stb_image"},
       {:castore, "~> 0.1"},
     ]
   end

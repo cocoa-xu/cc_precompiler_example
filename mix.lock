@@ -1,6 +1,6 @@
 %{
-  "castore": {:hex, :castore, "0.1.19", "a2c3e46d62b7f3aa2e6f88541c21d7400381e53704394462b9fd4f06f6d42bb6", [:mix], [], "hexpm", "e96e0161a5dc82ef441da24d5fa74aefc40d920f3a6645d15e1f9f3e66bb2109"},
-  "cc_precompiler": {:git, "https://github.com/cocoa-xu/cc_precompiler.git", "9530eca8a8c7a0ff98452b05820374184d03a3d2", []},
-  "elixir_make": {:git, "https://github.com/elixir-lang/elixir_make.git", "af33d9a00470d8a90fc47a198fad3dd6b527835c", []},
-  "stb_image": {:git, "https://github.com/cocoa-xu/stb_image.git", "4f85f32ec83f5c685a19efd30033ec17eb40e1d2", [branch: "cx-precompile"]},
+  "castore": {:hex, :castore, "0.1.20", "62a0126cbb7cb3e259257827b9190f88316eb7aa3fdac01fd6f2dfd64e7f46e9", [:mix], [], "hexpm", "a020b7650529c986c454a4035b6b13a328e288466986307bea3aadb4c95ac98a"},
+  "cc_precompiler": {:hex, :cc_precompiler, "0.1.4", "82537fc8b1ee788f874b78cd6c06aa67bab1e8352efae4712c29692e4e169459", [:mix], [{:elixir_make, "~> 0.7.2", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "ee272dc91c9aaa3f9cda3bd106e0b710d762b00f368fcd87b58436f34cd1c742"},
+  "elixir_make": {:hex, :elixir_make, "0.7.3", "c37fdae1b52d2cc51069713a58c2314877c1ad40800a57efb213f77b078a460d", [:mix], [{:castore, "~> 0.1", [hex: :castore, repo: "hexpm", optional: true]}], "hexpm", "24ada3e3996adbed1fa024ca14995ef2ba3d0d17b678b0f3f2b1f66e6ce2b274"},
+  "stb_image": {:git, "https://github.com/elixir-nx/stb_image.git", "0f61480b02f25b00007465f3bf44da2b80a46792", []},
 }

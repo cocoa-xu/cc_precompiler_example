@@ -33,3 +33,9 @@ $(NIF_SO):
 		cd "$(SRC_ROOT)"
 	@ mkdir -p "$(PRIV_DIR)/exclude_this"
 	@ echo hey > "$(PRIV_DIR)/exclude_this/hey.txt"
+	@ echo "$(CC_PRECOMPILER_CURRENT_TARGET)" > "$(PRIV_DIR)/include_this/build.txt"
+
+
+mycleanup:
+	@ echo "executing mycleanup..."
+	@ rm -f "$(PRIV_DIR)/include_this/build.txt"
