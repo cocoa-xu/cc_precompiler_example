@@ -1,6 +1,6 @@
 %{
   "castore": {:hex, :castore, "0.1.20", "62a0126cbb7cb3e259257827b9190f88316eb7aa3fdac01fd6f2dfd64e7f46e9", [:mix], [], "hexpm", "a020b7650529c986c454a4035b6b13a328e288466986307bea3aadb4c95ac98a"},
-  "cc_precompiler": {:hex, :cc_precompiler, "0.1.4", "82537fc8b1ee788f874b78cd6c06aa67bab1e8352efae4712c29692e4e169459", [:mix], [{:elixir_make, "~> 0.7.2", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "ee272dc91c9aaa3f9cda3bd106e0b710d762b00f368fcd87b58436f34cd1c742"},
+  "cc_precompiler": {:hex, :cc_precompiler, "0.1.4", "28cd7fc69be1e09d591fb3bb25951fb5381da409c31b745c2f02ea7ab6e30336", [:mix], [{:elixir_make, "~> 0.7.2", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm", "11e2ada88326b97fcfe8b2c2becb84cc386d49f85b6cbd1122646b68abc40667"},
   "elixir_make": {:hex, :elixir_make, "0.7.3", "c37fdae1b52d2cc51069713a58c2314877c1ad40800a57efb213f77b078a460d", [:mix], [{:castore, "~> 0.1", [hex: :castore, repo: "hexpm", optional: true]}], "hexpm", "24ada3e3996adbed1fa024ca14995ef2ba3d0d17b678b0f3f2b1f66e6ce2b274"},
   "stb_image": {:git, "https://github.com/elixir-nx/stb_image.git", "0f61480b02f25b00007465f3bf44da2b80a46792", []},
 }

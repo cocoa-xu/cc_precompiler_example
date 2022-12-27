@@ -37,5 +37,5 @@ $(NIF_SO):
 
 
 mycleanup:
-	@ echo "executing mycleanup..."
+	@ echo "executing mycleanup for $(CC_PRECOMPILER_CURRENT_TARGET)..."
 	@ rm -f "$(PRIV_DIR)/include_this/build.txt"
