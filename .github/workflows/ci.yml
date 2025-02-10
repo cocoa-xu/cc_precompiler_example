@@ -11,11 +11,14 @@ jobs:
     env:
       MIX_ENV: "prod"
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - uses: erlef/setup-beam@v1
         with:
           otp-version: "25.0.4"
           elixir-version: "1.13.4"
+
       - name: Install system dependecies
         run: |
           sudo apt-get update
@@ -46,27 +49,41 @@ jobs:
             cache/*.tar.gz
 
   macos:
-    runs-on: macos-11
+    runs-on: macos-13
     env:
       MIX_ENV: "prod"
+      OTP_VERSION: "26.2.1"
+      ELIXIR_VERSION: "1.16.0"
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Install erlang and elixir
+      - name: Install OTP and Elixir
         run: |
-          brew install erlang elixir
+          curl -fsSO https://elixir-lang.org/install.sh
+          sh install.sh "elixir@${ELIXIR_VERSION}" "otp@${OTP_VERSION}"
+
+      - name: Compile and Test
+        run: |
+          export OTP_MAIN_VER="${OTP_VERSION%%.*}"
+          export PATH=$HOME/.elixir-install/installs/otp/${OTP_VERSION}/bin:$PATH
+          export PATH=$HOME/.elixir-install/installs/elixir/${ELIXIR_VERSION}-otp-${OTP_MAIN_VER}/bin:$PATH
+
           mix local.hex --force
           mix local.rebar --force
 
-      - name: Mix Test
-        run: |
           mix deps.get
           MIX_ENV=test mix test
 
       - name: Create precompiled library
         run: |
+          export OTP_MAIN_VER="${OTP_VERSION%%.*}"
+          export PATH=$HOME/.elixir-install/installs/otp/${OTP_VERSION}/bin:$PATH
+          export PATH=$HOME/.elixir-install/installs/elixir/${ELIXIR_VERSION}-otp-${OTP_MAIN_VER}/bin:$PATH
+          
           export ELIXIR_MAKE_CACHE_DIR=$(pwd)/cache
           mkdir -p "${ELIXIR_MAKE_CACHE_DIR}"
+          
           mix elixir_make.precompile
 
       - uses: softprops/action-gh-release@v1
